@@ -1,0 +1,17 @@
+{
+  "name": "silon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "style-build": "node-sass style/sass --output style/css",
+    "style-watch": "node-sass --watch style/sass --output style/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

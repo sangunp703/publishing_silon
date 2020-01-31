@@ -5,6 +5,7 @@
 
 html {
   font-family: $roboto;
+  overflow-x: hidden;
 }
 
 .hidden {
@@ -12,62 +13,35 @@ html {
 }
 
 // info-header
-
 .info-header {
   background-color: $light-pink;
   width: 100vw;
 }
 
 .info-header-box {
-  width: 1140px;
+  @extend .common-section;
   height: $info-header-height;
-  margin: 0 auto;
-}
-
-.info-header-box__content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  &::after {
-    content: '';
-    display: none;
-    clear: both;
-  }
-
-  & span {
-    margin: 0 8px;
-    font: {
-      size: 11px;
-    }
-    color: gray;
-  }
 }
 
 .contact {
   float: left;
-
   @extend .info-header-box__content;
 }
 
 .sub-info {
   float: right;
-
   @extend .info-header-box__content;
 }
 
 // main-header
-
 .main-header {
   width: 100vw;
   background-color: white;
 }
 
 .main-header-box {
-  width: 1140px;
+  @extend .common-section;
   height: $main-header-height;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,7 +79,7 @@ html {
   }
 
   &:nth-of-type(1):hover {
-    & .sub-nav {
+    & > .sub-nav {
       opacity: 1;
     }
   }
@@ -157,33 +131,13 @@ html {
   &:nth-of-type(2) {
     &::after {
       content: '0';
-      position: absolute;
-      font-size: 10px;
-      right: 0;
-      top: 0;
-      text-align: center;
-      width: 15px;
-      height: 15px;
-      line-height: 15px;
-      border-radius: 8px;
-      background-color: $pink;
-      color: white;
+      @extend .pink-bubble;
     }
   }
   &:nth-of-type(3) {
     &::after {
       content: '09';
-      position: absolute;
-      font-size: 10px;
-      right: 0;
-      top: 0;
-      text-align: center;
-      width: 15px;
-      height: 15px;
-      line-height: 15px;
-      border-radius: 8px;
-      background-color: $pink;
-      color: white;
+      @extend .pink-bubble;
     }
   }
 }
@@ -202,6 +156,7 @@ html {
   top: 50%;
   left: 36%;
   transform: translate(-50%, -50%);
+  width: 500px;
   text-align: center;
 }
 
@@ -211,7 +166,7 @@ html {
     weight: 500;
   }
   letter-spacing: 4px;
-  color: #565656;
+  color: $dark-gray;
   margin-bottom: 10px;
 }
 .main-banner-title__title {
@@ -247,6 +202,275 @@ html {
   top: 50%;
   transform: translateY(-50%);
   height: 100%;
-
   overflow: hidden;
+}
+
+// feature section
+.feature {
+  width: 100vw;
+  height: 36vw;
+}
+
+.feature-box {
+  @extend .common-section;
+}
+
+.feature-box__title {
+  @extend .section-title;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+}
+
+.grid--column-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--column-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-item {
+  &:hover .product-icon {
+    margin-top: 25px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.product-box {
+  position: relative;
+}
+
+.product-box__img {
+  width: 100%;
+  height: auto;
+}
+
+.product-icon-box {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: calc(150px + #{$product-icon-gap} * 6);
+}
+
+.product-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: white;
+  opacity: 0;
+  margin: 0 $product-icon-gap;
+  margin-top: 50px;
+  float: left;
+  transition: color 0.5s, background-color 0.5s;
+  cursor: pointer;
+  visibility: hidden;
+
+  &:nth-of-type(1) {
+    @include add_transition(0s);
+  }
+
+  &:nth-of-type(2) {
+    @include add_transition(0.1s);
+  }
+
+  &:nth-of-type(3) {
+    @include add_transition(0.2s);
+  }
+
+  & > i {
+    line-height: 50px;
+  }
+
+  &:hover {
+    background-color: $pink;
+    color: white;
+  }
+}
+
+.grid-item__title {
+  display: inline-block;
+  color: gray;
+  font-size: 15px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
+.star-icon {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+  color: $pink;
+  margin: 10px 0;
+}
+
+.grid-item__price {
+  font: {
+    size: 19px;
+    weight: 500;
+  }
+}
+
+//sub banner
+.sub-banner {
+  position: relative;
+  width: 100vw;
+  height: 30vw;
+  background-color: $ivory;
+}
+
+.sub-banner__bgi {
+  @extend .main-banner__bgi;
+}
+
+.sub-banner-title {
+  @extend .main-banner-title;
+}
+
+.sub-banner-title__em {
+  font: {
+    size: 60px;
+    weight: bold;
+    family: $dancing-script;
+  }
+}
+
+.sub-banner-title__title {
+  font: {
+    size: 25px;
+    weight: 100;
+  }
+  margin-top: 35px;
+}
+
+.sub-banner-title__btn {
+  @extend .main-banner-title__btn;
+}
+
+// popular section
+.popular {
+  width: 100vw;
+}
+
+.popular-box {
+  @extend .common-section;
+}
+
+.popular-box__title {
+  @extend .section-title;
+}
+
+.grid-item--border {
+  border: 1px solid $light-gray;
+  margin-top: 120px;
+  margin-bottom: 50px;
+  padding: 20px 0;
+}
+
+.grid-item__icon {
+  display: block;
+  margin: 10px auto;
+  margin-bottom: 30px;
+}
+.grid-item__em {
+  display: block;
+  font: {
+    size: 15px;
+    weight: 500;
+  }
+  margin: 15px 0;
+}
+.grid-item__sub {
+  color: gray;
+  font-size: 15px;
+}
+
+// trend section
+.trend {
+  width: 100vw;
+}
+
+.trend-box {
+  @extend .common-section;
+}
+
+.trend-box__title {
+  @extend .section-title;
+}
+
+// journal section
+.journal {
+  width: 100vw;
+  margin-top: 120px;
+}
+
+.journal-box {
+  @extend .common-section;
+  text-align: left;
+}
+
+.journal-box__title {
+  @extend .section-title;
+}
+
+.journal-item__img {
+  margin-bottom: 20px;
+}
+
+.journal-item__date {
+  color: gray;
+  font-size: 14px;
+  line-height: 25px;
+  transition-duration: $short-time;
+  cursor: pointer;
+
+  &:hover {
+    color: $pink;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 11px;
+    height: 6px;
+    margin-right: 7px;
+    margin-bottom: 2px;
+    background-color: $pink;
+    border-radius: 2px;
+  }
+}
+.journal-item__title {
+  font: {
+    size: 20px;
+    weight: 600;
+  }
+  line-height: 30px;
+  transition-duration: $short-time;
+  cursor: pointer;
+
+  &:hover {
+    color: $pink;
+  }
+}
+.journal-item__line {
+  border: 0.5px lightgray solid;
+  margin: 20px 0;
+}
+
+.journal-item__link {
+  @extend .journal-item__anchor;
+}
+
+.journal-item__comment {
+  @extend .journal-item__anchor;
 }

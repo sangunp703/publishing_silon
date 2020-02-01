@@ -9,7 +9,9 @@ $light-pink: #fef7f6;
 $pink: #ff5353;
 $dark-blue: #5256b3;
 $ivory: #eae2d8;
+$dark-ivory: #e9e2d8;
 $dark-gray: #565656;
+$gray: #888888;
 $light-gray: #eeeeee;
 
 // font
@@ -20,6 +22,13 @@ $dancing-script: 'Dancing Script', cursive;
 $short-time: 0.3s;
 
 // common component
+.set-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .common-section {
   width: $section-width;
   margin: 0 auto;

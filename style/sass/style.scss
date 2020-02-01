@@ -12,6 +12,11 @@ html {
   display: none;
 }
 
+.gray-line {
+  border: 0.5px lightgray solid;
+  margin: 25px 0;
+}
+
 // info-header
 .info-header {
   background-color: $light-pink;
@@ -462,10 +467,6 @@ html {
     color: $pink;
   }
 }
-.journal-item__line {
-  border: 0.5px lightgray solid;
-  margin: 20px 0;
-}
 
 .journal-item__link {
   @extend .journal-item__anchor;
@@ -473,4 +474,185 @@ html {
 
 .journal-item__comment {
   @extend .journal-item__anchor;
+}
+
+.follow {
+  width: 100vw;
+}
+
+.follow-box {
+  @extend .common-section;
+}
+
+.follow-box__title {
+  @extend .section-title;
+}
+
+.grid-small-item {
+  position: relative;
+  width: 255px;
+  height: 243px;
+  cursor: pointer;
+
+  & > i {
+    @extend .set-center;
+    color: white;
+    font-size: 30px;
+    opacity: 0;
+    transition-duration: 0.2s;
+  }
+
+  &:hover {
+    & > .grid-small-layout {
+      height: 100%;
+      opacity: 0.6;
+    }
+
+    & > i {
+      opacity: 1;
+    }
+  }
+}
+
+.grid-small-item__bgi {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-small-layout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 85%;
+  background-color: $pink;
+  transition: opacity 0.2s, height 0.4s;
+  opacity: 0;
+}
+
+// footer
+.footer {
+  width: 100vw;
+  background-color: $dark-ivory;
+  margin-top: 50px;
+}
+
+.footer-box {
+  @extend .common-section;
+  padding-top: 80px;
+  text-align: left;
+}
+
+.footer-link {
+  margin-bottom: 60px;
+}
+
+.footer-link__title {
+  font: {
+    size: 16px;
+    weight: 600;
+  }
+  margin-bottom: 30px;
+}
+
+.footer-link__link {
+  text-decoration: none;
+  color: $gray;
+  display: block;
+  line-height: 30px;
+  font-size: 14px;
+  transition-duration: $short-time;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-box__btn {
+  display: flex;
+  align-items: center;
+  width: 49%;
+  height: 50px;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  transition-duration: $short-time;
+
+  & i {
+    line-height: 50px;
+    font-size: 20px;
+    margin: 0 8px;
+    color: $pink;
+  }
+
+  & span {
+    display: block;
+    color: $gray;
+    font-size: 10px;
+  }
+
+  & em {
+    font: {
+      size: 12px;
+      weight: 500;
+    }
+    color: black;
+  }
+
+  &:hover {
+    @extend .btn-box__btn--reverse;
+  }
+}
+
+.btn-box__btn--reverse {
+  background-color: $pink;
+
+  & i {
+    color: white;
+  }
+  & span {
+    color: white;
+  }
+  & em {
+    color: white;
+  }
+}
+
+.footer-link__sns {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 5px;
+  color: black;
+  transition-duration: $short-time;
+
+  & i {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  &:hover {
+    color: white;
+    background-color: $pink;
+  }
+}
+
+.footer-box__copyright {
+  text-align: center;
+  color: $gray;
+  padding-bottom: 25px;
+  font-size: 14px;
+
+  & a {
+    color: $pink;
+    text-decoration: none;
+  }
 }

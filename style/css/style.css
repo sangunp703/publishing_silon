@@ -140,9 +140,10 @@ table {
   text-align: center; }
 
 .section-title, .feature-box__title, .popular-box__title, .trend-box__title, .journal-box__title, .follow-box__title {
-  margin: 50px;
+  margin-top: 50px;
   margin-bottom: 80px;
   text-align: center;
+  white-space: pre;
   font-size: 35px;
   font-weight: 600; }
 
@@ -212,6 +213,7 @@ html {
   float: right; }
 
 .main-header {
+  position: relative;
   width: 100vw;
   background-color: white; }
 
@@ -224,9 +226,9 @@ html {
 .nav-box__item {
   position: relative;
   display: inline-block;
-  height: 85px;
   cursor: pointer; }
   .nav-box__item > a {
+    position: relative;
     text-decoration: none;
     color: black;
     transition-duration: 0.5s;
@@ -234,15 +236,15 @@ html {
     font-weight: 500;
     padding: 0 15px;
     line-height: 85px; }
+    .nav-box__item > a > i {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      cursor: pointer; }
   .nav-box__item:hover > a {
     color: #ff5353; }
-  .nav-box__item > i {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    cursor: pointer; }
   .nav-box__item:nth-of-type(1):hover > .sub-nav {
     opacity: 1; }
 
@@ -449,10 +451,11 @@ html {
 .popular {
   width: 100vw; }
 
+.popular-box .grid {
+  margin: 100px 0; }
+
 .grid-item--border {
   border: 1px solid #eeeeee;
-  margin-top: 120px;
-  margin-bottom: 50px;
   padding: 20px 0; }
 
 .grid-item__icon {
@@ -638,11 +641,38 @@ html {
   .common-section, .info-header-box, .main-header-box, .feature-box, .popular-box, .trend-box, .journal-box, .follow-box, .footer-box {
     width: 960px; } }
 
+@media screen and (min-width: 993px) {
+  .nav {
+    display: block; } }
+
 @media screen and (max-width: 992px) {
   .common-section, .info-header-box, .main-header-box, .feature-box, .popular-box, .trend-box, .journal-box, .follow-box, .footer-box {
     width: 720px; }
-  .nav-box {
-    display: none; }
+  .nav {
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 720px;
+    display: none;
+    background-color: white;
+    overflow: hidden; }
+  .nav-box__item {
+    display: block;
+    text-align: left;
+    width: 100%; }
+    .nav-box__item > a {
+      line-height: 50px;
+      display: inline-block;
+      width: 100%; }
+      .nav-box__item > a > i {
+        right: 10%; }
+  .sub-nav {
+    position: static;
+    opacity: 1;
+    width: 100%;
+    box-shadow: 0px 0px 5px 1px gray; }
   .icon-box__icon:nth-of-type(1) {
     display: block; }
   .main-banner-title, .sub-banner-title {
@@ -664,3 +694,55 @@ html {
       font-size: 8px; }
     .btn-box__btn em {
       font-size: 10px; } }
+
+@media screen and (max-width: 767px) {
+  .info-header {
+    display: none; }
+  .nav {
+    width: 540px; }
+  .main-banner {
+    height: unset; }
+  .main-banner-right {
+    position: relative;
+    width: 100%;
+    height: unset;
+    text-align: center; }
+  .main-banner__bgi, .sub-banner__bgi {
+    position: relative;
+    width: 95%;
+    height: auto;
+    top: unset;
+    left: unset;
+    transform: unset; }
+  .main-banner-left {
+    position: relative;
+    width: 100%; }
+  .main-banner-title, .sub-banner-title {
+    position: relative;
+    width: 100%;
+    top: unset;
+    transform: unset;
+    margin-top: 50px;
+    padding-bottom: 50px; }
+  .main-banner-title__title {
+    font-size: 45px; }
+  .common-section, .info-header-box, .main-header-box, .feature-box, .popular-box, .trend-box, .journal-box, .follow-box, .footer-box {
+    width: 540px; }
+  .sub-banner {
+    height: unset; }
+  .sub-banner-title {
+    padding-top: 50px; }
+  .grid--column-4 {
+    grid-template-columns: repeat(2, 1fr); }
+  .journal-box > .grid--column-3 {
+    grid-template-columns: repeat(1, 1fr); } }
+
+@media screen and (max-width: 575px) {
+  .common-section, .info-header-box, .main-header-box, .feature-box, .popular-box, .trend-box, .journal-box, .follow-box, .footer-box {
+    width: 350px; }
+  .nav {
+    width: 90vw; }
+  .grid--column-4 {
+    grid-template-columns: repeat(1, 1fr); }
+  .grid--column-3 {
+    grid-template-columns: repeat(1, 1fr); } }

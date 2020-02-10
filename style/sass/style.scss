@@ -40,6 +40,7 @@ html {
 
 // main-header
 .main-header {
+  position: relative;
   width: 100vw;
   background-color: white;
 }
@@ -55,10 +56,10 @@ html {
 .nav-box__item {
   position: relative;
   display: inline-block;
-  height: $main-header-height;
   cursor: pointer;
 
   & > a {
+    position: relative;
     text-decoration: none;
     color: black;
     transition-duration: 0.5s;
@@ -68,19 +69,19 @@ html {
     }
     padding: 0 15px;
     line-height: $main-header-height;
+
+    & > i {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      cursor: pointer;
+    }
   }
 
   &:hover > a {
     color: $pink;
-  }
-
-  & > i {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    cursor: pointer;
   }
 
   &:nth-of-type(1):hover {
@@ -396,10 +397,12 @@ html {
   @extend .section-title;
 }
 
+.popular-box .grid {
+  margin: 100px 0;
+}
+
 .grid-item--border {
   border: 1px solid $light-gray;
-  margin-top: 120px;
-  margin-bottom: 50px;
   padding: 20px 0;
 }
 

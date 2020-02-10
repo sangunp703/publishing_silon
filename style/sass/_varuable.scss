@@ -36,9 +36,10 @@ $short-time: 0.3s;
 }
 
 .section-title {
-  margin: 50px;
+  margin-top: 50px;
   margin-bottom: 80px;
   text-align: center;
+  white-space: pre;
   font: {
     size: 35px;
     weight: 600;
